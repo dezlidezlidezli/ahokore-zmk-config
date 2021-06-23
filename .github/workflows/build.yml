@@ -56,7 +56,7 @@ jobs:
       - name: Ahokore Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.hex
-        run: cp build/zephyr/zmk.uf2 ahokore.hex
+        run: cp build/zephyr/zmk.hex ahokore.hex
       - name: Archive (Ahokore)
         uses: actions/upload-artifact@v2
         with:
