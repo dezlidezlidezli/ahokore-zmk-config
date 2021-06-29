@@ -55,10 +55,10 @@ jobs:
         run: cat -n build/zephyr/ahokore.dts.pre.tmp
       - name: Ahokore Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.hex
-        run: cp build/zephyr/zmk.hex ahokore.hex
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 ahokore.uf2
       - name: Archive (Ahokore)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: ahokore.hex
+          path: ahokore.uf2
