@@ -34,11 +34,8 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (Ahokore)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-Ahokore
-        with:
-          args: 'build "-s zmk/app -b ahokore -- -DZMK_CONFIG=/github/workspace/config/"'
+      - name: West Build Ahokore
+        run: west build -s zmk/app -b ahokore -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Ahokore DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/ahokore.dts.pre.tmp
